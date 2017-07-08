@@ -10,3 +10,10 @@ Install all dependencies running `yarn`
 ## Usage
 
 Run the dev server via `yarn start`
+
+
+## Scott is doing
+
+adding gen form.js page
+adding genformmodel.js
+add the backend
