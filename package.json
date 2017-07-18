@@ -12,10 +12,15 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "isomorphic-fetch": "^2.2.1",
+    "mongoose": "^4.11.3",
     "next": "^3.0.1-beta.8",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

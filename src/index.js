@@ -1,6 +1,8 @@
 import next from 'next';
 import path from 'path';
 import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({
@@ -14,8 +16,18 @@ const PORT = 3001;
 nextApp.prepare().then(() => {
   const app = express();
 
-  // Define all you backend handlers here...
+  app.use(bodyParser.json());
 
+  // Define all you backend handlers here...
+  mongoose.Promise = global.Promise;
+  mongoose.connect('mongobd://localhost/drpat');
+
+  const db = mongoose.connection;
+
+  db.on('error', console.error.bind(console, 'connection error'));
+  db.once('open', function () {
+    console.log('we are connected!');
+  });
   // Handle everything that is not covered in above routes with next.js
   app.get('*', (request, response) => {
     return handle(request, response);
