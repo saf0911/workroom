@@ -3,6 +3,7 @@ import path from 'path';
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import userRoutes from './routes/userRoutes';
 
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({
@@ -18,9 +19,13 @@ nextApp.prepare().then(() => {
 
   app.use(bodyParser.json());
 
+
+
   // Define all you backend handlers here...
   mongoose.Promise = global.Promise;
-  mongoose.connect('mongobd://localhost/drpat');
+  mongoose.connect('mongobd://localhost/drpat', {
+    useMongoClient: true,
+  });
 
   const db = mongoose.connection;
 
@@ -28,6 +33,8 @@ nextApp.prepare().then(() => {
   db.once('open', function () {
     console.log('we are connected!');
   });
+
+  app.use(userRoutes);
   // Handle everything that is not covered in above routes with next.js
   app.get('*', (request, response) => {
     return handle(request, response);

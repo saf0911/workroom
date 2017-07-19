@@ -4,21 +4,21 @@ import Link from 'next/link';
 function signUpPage() {
   return (
     <div>
-      <h3>This in my SignUp Page</h3>
+      <h3>This is my SignUp Page</h3>
       <form>
-        <input type="text" username="username" value="" placeholder="username" />
+        <input type="text" name="username" value="" placeholder="username" />
         &nbsp; &nbsp;
-        <input type="text" password="password" value="" placeholder="password"/>
+        <input type="text" name="password" value="" placeholder="password"/>
         <br />
         <br />
-        <input type="text" firstName="firstName" value="" placeholder="first"/>
+        <input type="text" name="firstName" value="" placeholder="first"/>
         &nbsp; &nbsp;
-        <input type="text" lastName="lastName" value="" placeholder="last"/>
+        <input type="text" name="lastName" value="" placeholder="last"/>
         <br />
         <br />
-        <input type="text" password="password" value="" placeholder="email"/>
+        <input type="text" name="password" value="" placeholder="email"/>
         &nbsp; &nbsp;
-        <input type="text" password="password" value="" placeholder="phone"/>
+        <input type="text" name="password" value="" placeholder="phone"/>
         <br />
         <br />
         <button>Submit</button>   &nbsp; &nbsp; &nbsp; &nbsp;
