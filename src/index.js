@@ -23,9 +23,7 @@ nextApp.prepare().then(() => {
 
   // Define all you backend handlers here...
   mongoose.Promise = global.Promise;
-  mongoose.connect('mongobd://localhost/drpat', {
-    useMongoClient: true,
-  });
+  mongoose.connect('mongodb://localhost/drpat');
 
   const db = mongoose.connection;
 
