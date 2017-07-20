@@ -7,20 +7,21 @@ import {
   loadUsers,
 } from '../actions';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 
 
 
 const FORM_VALUES = {
+  userName: '',
+  passWord: '',
   firstName: '',
   lastName: '',
-  birthDate: '',
-  address: '',
-  State: '',
-  zip: '',
+  asthma: '',
+  asthmaExplain: '',
 };
 
-class patientContact extends Component {
+class patientMedicalForm extends Component {
   constructor(props) {
     super(props);
     this.state = FORM_VALUES;
@@ -52,7 +53,24 @@ class patientContact extends Component {
         </h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
 
-          First name:<br />
+          <input
+            type='text'
+            name='userName'
+            placeholder='Add username'
+            value={this.state.userName}
+            onChange={this.handleInputChange.bind(this)}
+          />
+          &nbsp; &nbsp;
+
+          <input
+            type='text'
+            name='passWord'
+            placeholder='Add password'
+            value={this.state.passWord}
+            onChange={this.handleInputChange.bind(this)}
+          />
+          <br />
+
             <input
               type='text'
               name='firstName'
@@ -60,9 +78,9 @@ class patientContact extends Component {
               value={this.state.firstName}
               onChange={this.handleInputChange.bind(this)}
             />
-            <br />
+            &nbsp; &nbsp;
 
-          Last name:<br />
+
             <input
               type='text'
               name='lastName'
@@ -70,59 +88,37 @@ class patientContact extends Component {
               value={this.state.lastName}
               onChange={this.handleInputChange.bind(this)}
              />
-            <br />
+            <br /> <br /> <br />
 
-          Birth date: <br />
-            <input
-              type="String"
-              name="birthdate"
-              placeholder="mm/dd/yyyy"
-              value={this.state.birthdate}
-              onChange={this.handleInputChange.bind(this)}
-            />
-            <br />
 
-          Address: <br />
             <input
               type='text'
-              name='address'
-              placeholder='Add Address'
-              value={this.state.address}
+              name='asthma'
+              placeholder='Yes/No'
+              value={this.state.asthama}
               onChange={this.handleInputChange.bind(this)}
             />
-            <br />
+            &nbsp; &nbsp;
 
-          City: <br />
-            <input
-            type='text'
-            name='city'
-            placeholder='City'
-            value={this.state.city}
-            onChange={this.handleInputChange.bind(this)}
-            />
-            <br />
+            Asthma
 
-          State:<br />
+            &nbsp; &nbsp;
+
             <input
               type='text'
-              name='homeState'
-              placeholder='State'
-              value={this.state.State}
+              name='asthma'
+              placeholder='Explain'
+              value={this.state.asthmaExplain}
               onChange={this.handleInputChange.bind(this)}
-             />
-             <br />
+            />
 
-             Zip:<br />
-               <input
-                 type='text'
-                 name='zip'
-                 placeholder='Zip'
-                 value={this.state.zip}
-                 onChange={this.handleInputChange.bind(this)}
-                />
                 <br /><br />
 
           <input type="submit" value="Submit" />
+
+          <Link href="/signInPage">
+            <button >Already have an account</button>
+          </Link>
 
         </form>
       </div>
@@ -143,11 +139,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-patientContact.propTypes = {
+patientMedicalForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   loadUsers: PropTypes.func,
   onMount: PropTypes.func.isRequired,
 };
 
 // null will be mapstatetoprops and mapdispatchtoprops
-export default withRedux(initStore, null, mapDispatchToProps)(patientContact);
+export default withRedux(initStore, null, mapDispatchToProps)(patientMedicalForm);
