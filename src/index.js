@@ -4,7 +4,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import userRoutes from './routes/userRoutes';
-import authRouter from '../routes/AuthenticationRoute';
+// import authRouter from './routes/AuthenticationRoute';
+require('dotenv').config({ path: `${__dirname}/.env` });
 
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({
@@ -13,7 +14,7 @@ const nextApp = next({
 });
 const handle = nextApp.getRequestHandler();
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 nextApp.prepare().then(() => {
   const app = express();
@@ -37,7 +38,7 @@ nextApp.prepare().then(() => {
     console.log('we are connected!');
   });
 
-  app.use(authRouter);
+  // app.use(authRouter);
   app.use(userRoutes);
   // Handle everything that is not covered in above routes with next.js
   app.get('*', (request, response) => {

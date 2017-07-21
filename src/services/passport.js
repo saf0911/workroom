@@ -1,8 +1,9 @@
 import bcrypt from 'bcrypt';
 import passport from 'passport';
-import User from '../models/Users';
+import User from '../models/patientContactModel';
 import LocalStrategy from 'passport-local';
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
+require('dotenv').config({ path: `${__dirname}/.env` });
 
 const signInStrategy = new LocalStrategy((username, password, done) => {
   User.findOne({ username }).exec()
@@ -24,7 +25,7 @@ const signInStrategy = new LocalStrategy((username, password, done) => {
 });
 
 const jwtOptions = {
-  secretOrKey: '1234',
+  secretOrKey: process.env.SECRET,
   jwtFromRequest: ExtractJwt.fromHeader('Authorization')
 };
 
