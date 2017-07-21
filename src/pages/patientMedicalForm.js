@@ -17,7 +17,7 @@ const FORM_VALUES = {
   passWord: '',
   firstName: '',
   lastName: '',
-  asthma: '',
+  asthma: false,
   asthmaExplain: '',
 };
 
@@ -92,12 +92,22 @@ class patientMedicalForm extends Component {
 
 
             <input
-              type='text'
+              type='radio'
               name='asthma'
-              placeholder='Yes/No'
-              value={this.state.asthama}
+              value={this.state.asthma}
               onChange={this.handleInputChange.bind(this)}
             />
+            Yes
+            &nbsp; &nbsp;
+
+            <input
+              type='radio'
+              name='asthma'
+              value={!this.state.asthma}
+              onChange={this.handleInputChange.bind(this)}
+            />
+            No
+
             &nbsp; &nbsp;
 
             Asthma

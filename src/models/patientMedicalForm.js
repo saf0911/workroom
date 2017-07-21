@@ -22,9 +22,8 @@ const userSchema = mongoose.Schema({
     maxlength: [ 20, 'That is a long last name' ]
   },
 
-  asthmaYes: {
-    type: String,
-    maxlength: [ 3, 'Just Yes or No' ]
+  asthma: {
+    type: Boolean,
   }
 
 
