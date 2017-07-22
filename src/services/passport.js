@@ -3,7 +3,7 @@ import passport from 'passport';
 import User from '../models/patientContactModel';
 import LocalStrategy from 'passport-local';
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
-require('dotenv').config({ path: `${__dirname}/.env` });
+require('dotenv').config();
 
 const signInStrategy = new LocalStrategy((username, password, done) => {
   User.findOne({ username }).exec()
