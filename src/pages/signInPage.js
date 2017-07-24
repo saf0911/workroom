@@ -16,6 +16,9 @@ function signInPage() {
       <Link href="/">
         <button>Home</button>
       </Link>
+      <Link href='/patientMedicalForm'>
+        <button>Forms</button>
+      </Link>  
     </form>
     </div>
   );

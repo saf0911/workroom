@@ -3,8 +3,8 @@ import withRedux from 'next-redux-wrapper';
 import {initStore} from '../services/store';
 import Header from '../components/Header';
 import {
-  createUser,
   loadUsers,
+  updateUser,
 } from '../actions';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
@@ -44,7 +44,10 @@ class patientMedicalForm extends Component {
     this.setState(FORM_VALUES);
   }
 
+
+
   render() {
+
     return (
       <div>
         <Header />
@@ -53,23 +56,6 @@ class patientMedicalForm extends Component {
         </h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
 
-          <input
-            type='text'
-            name='userName'
-            placeholder='Add username'
-            value={this.state.userName}
-            onChange={this.handleInputChange.bind(this)}
-          />
-          &nbsp; &nbsp;
-
-          <input
-            type='text'
-            name='passWord'
-            placeholder='Add password'
-            value={this.state.passWord}
-            onChange={this.handleInputChange.bind(this)}
-          />
-          <br />
 
             <input
               type='text'
@@ -140,7 +126,7 @@ class patientMedicalForm extends Component {
 function mapDispatchToProps(dispatch) {
   return {
     onSubmit: values => {
-      dispatch(createUser(values));
+      dispatch(updateUser(values));
     },
     onMount: () => {
       dispatch(loadUsers());
@@ -153,6 +139,10 @@ patientMedicalForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   loadUsers: PropTypes.func,
   onMount: PropTypes.func.isRequired,
+  getUserId: PropTypes.func,
+  url: PropTypes.object,
+  query: PropTypes.array,
+  id: PropTypes.array,
 };
 
 // null will be mapstatetoprops and mapdispatchtoprops

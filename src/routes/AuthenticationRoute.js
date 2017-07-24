@@ -1,5 +1,5 @@
 import express from 'express';
-import User from '../models/patientContactModel';
+import userController from '../controllers/UserController';
 import bcrypt from 'bcrypt';
 import passport from 'passport';
 import jwt from 'jwt-simple';
@@ -9,7 +9,7 @@ require('../services/passport');
 
 const authRouter = express.Router();
 
-authRouter.post('/patientSignUpForm', (request, response, next) => {
+authRouter.post('../pages/patientSignUpForm', (request, response, next) => {
   const {userName, passWord} = request.body;
 
   if (!userName || !passWord) {
@@ -47,12 +47,12 @@ function tokenForUser(user) {
   return jwt.encode({ userID: user.id, iat: timeStamp}, process.env.SECRET);
 }
 
-authRouter.post('/patientSignUpForm', signinStrategy, (request, response) => {
+authRouter.post('../pages/patientSignUpForm', signinStrategy, (request, response) => {
   response.json({ token: tokenForUser(request.user)});
 });
 
 
-authRouter.post('/patientSignUpForm', (request, response) => {
+authRouter.post('/pages/signInPage', (request, response) => {
   response.json({message: 'welcome'});
 });
 
