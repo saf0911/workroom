@@ -4,7 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import userRoutes from './routes/userRoutes';
-// import authRouter from './routes/AuthenticationRoute';
+import authRouter from './routes/AuthenticationRoute';
 require('dotenv').config();
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -38,8 +38,9 @@ nextApp.prepare().then(() => {
     console.log('we are connected!');
   });
 
-  // app.use(authRouter);
+
   app.use(userRoutes);
+  app.use(authRouter);
   // Handle everything that is not covered in above routes with next.js
   app.get('*', (request, response) => {
     return handle(request, response);

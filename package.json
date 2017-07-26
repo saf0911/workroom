@@ -18,7 +18,7 @@
     "express": "^4.15.3",
     "isomorphic-fetch": "^2.2.1",
     "jwt-simple": "^0.5.1",
-    "mongoose": "^4.11.3",
+    "mongoose": "^4.11.4",
     "next": "^3.0.1-beta.8",
     "next-redux-wrapper": "^1.2.0",
     "passport": "^0.3.2",

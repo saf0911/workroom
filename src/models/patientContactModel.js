@@ -48,10 +48,15 @@ const userSchema = mongoose.Schema({
     maxlength: [ 10, 'Just the zip' ]
   },
 
-  asthmaYes: {
+  aasthmaExplain: {
     type: String,
-    maxlength: [ 3, 'Just Yes or No' ]
-  }
+    maxlength: [ 200, 'Details' ]
+  },
+
+  asthma: {
+    type: Boolean,
+  },
+  
 
 
 

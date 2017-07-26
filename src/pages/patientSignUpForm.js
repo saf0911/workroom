@@ -21,6 +21,7 @@ const FORM_VALUES = {
   address: '',
   State: '',
   zip: '',
+  asthma: Boolean,
 };
 
 class patientContact extends Component {

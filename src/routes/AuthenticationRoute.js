@@ -1,5 +1,5 @@
 import express from 'express';
-import userController from '../controllers/UserController';
+import User from '../models/patientContactModel';
 import bcrypt from 'bcrypt';
 import passport from 'passport';
 import jwt from 'jwt-simple';
@@ -47,7 +47,7 @@ function tokenForUser(user) {
   return jwt.encode({ userID: user.id, iat: timeStamp}, process.env.SECRET);
 }
 
-authRouter.post('../pages/patientSignUpForm', signinStrategy, (request, response) => {
+authRouter.post('/api/signup', signinStrategy, (request, response) => {
   response.json({ token: tokenForUser(request.user)});
 });
 

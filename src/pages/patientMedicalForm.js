@@ -102,7 +102,7 @@ class patientMedicalForm extends Component {
 
             <input
               type='text'
-              name='asthma'
+              name='asthmaExplain'
               placeholder='Explain'
               value={this.state.asthmaExplain}
               onChange={this.handleInputChange.bind(this)}

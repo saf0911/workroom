@@ -6,6 +6,7 @@ import {
   from '../actions';
 import withRedux from 'next-redux-wrapper';
 import {initStore} from '../services/store';
+import Link from 'next/link';
 
 class ListOfPatients extends Component {
   componentDidMount() {
@@ -23,7 +24,16 @@ class ListOfPatients extends Component {
                 <li> {user.lastName} </li>
                 <li> {user.userName} </li>
               </ul>
-              <a href={`/details?id=${user._id}`} >View User</a>
+              <Link href={`/details?id=${user._id}`} >
+                <button>
+                View User
+                </button>
+              </Link>
+              <Link href={`patientMedicalForm?id=${user._id}`}>
+                <button>
+                  Fill out your form
+                </button>
+              </Link>   
               <button onClick=
                 {() => this.props.deleteUser(`${user._id}`)} >
                 Delete User
