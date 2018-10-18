@@ -5,7 +5,7 @@ function loadUserError(message) {
     type: 'USER_LOAD_ERROR',
     message
   };
-}
+} 
 
 export function loadUsers() {
   return function (dispatch) {

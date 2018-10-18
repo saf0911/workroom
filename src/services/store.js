@@ -7,6 +7,7 @@ import reducer from '../reducer';
 const initialState = {};
 
 
+
 export const initStore = () => {
   return createStore(reducer, initialState, composeWithDevTools(applyMiddleware(thunkMiddlware)));
 };

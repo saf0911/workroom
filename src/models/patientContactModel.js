@@ -12,6 +12,7 @@ const userSchema = mongoose.Schema({
     maxlength: [ 20, 'We do not need that long of a name' ]
   },
 
+
   firstName: {
     type: String,
     maxlength: [ 20, 'We do not need that long of a name' ]
@@ -56,7 +57,7 @@ const userSchema = mongoose.Schema({
   asthma: {
     type: Boolean,
   },
-  
+
 
 
 

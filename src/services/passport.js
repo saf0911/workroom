@@ -24,6 +24,7 @@ const signInStrategy = new LocalStrategy((username, password, done) => {
   .catch(err => done(err, false));
 });
 
+
 const jwtOptions = {
   secretOrKey: process.env.SECRET,
   jwtFromRequest: ExtractJwt.fromHeader('Authorization')

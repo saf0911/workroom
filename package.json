@@ -11,6 +11,7 @@
     "start": "babel-node src/index",
     "lint": "eslint src"
   },
+  
   "dependencies": {
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.2",

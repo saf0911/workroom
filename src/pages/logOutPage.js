@@ -14,4 +14,5 @@ function logOutPage() {
   );
 }
 
+
 export default logOutPage;

@@ -12,6 +12,7 @@ const userController = {
       return next(err);
     });
   },
+  
 
   show: (request, response, next) => {
     User.findById(request.params.id).exec()

@@ -18,10 +18,11 @@ function signInPage() {
       </Link>
       <Link href='/patientMedicalForm'>
         <button>Forms</button>
-      </Link>  
+      </Link>
     </form>
     </div>
   );
 }
+
 
 export default signInPage;

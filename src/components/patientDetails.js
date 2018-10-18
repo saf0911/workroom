@@ -7,6 +7,7 @@ import { getUserId } from '../actions';
 
 
 
+
 class Details extends Component {
   constructor(props) {
     super(props);

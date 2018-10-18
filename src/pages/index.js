@@ -11,6 +11,7 @@ function IndexPage() {
       <Header />
     </div>
   );
+  
 }
 
 export default IndexPage;

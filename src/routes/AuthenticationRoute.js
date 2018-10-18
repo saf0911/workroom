@@ -25,6 +25,7 @@ authRouter.post('../pages/patientSignUpForm', (request, response, next) => {
       }
 
 
+
       bcrypt.hash(passWord, 10, (err, hashedPassword) => {
         if (err) {
           return next(err);

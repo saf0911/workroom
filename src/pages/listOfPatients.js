@@ -13,6 +13,7 @@ class ListOfPatients extends Component {
     this.props.loadUsers();
   }
 
+
   render() {
     return (
       <div>
@@ -33,7 +34,7 @@ class ListOfPatients extends Component {
                 <button>
                   Fill out your form
                 </button>
-              </Link>   
+              </Link>
               <button onClick=
                 {() => this.props.deleteUser(`${user._id}`)} >
                 Delete User
